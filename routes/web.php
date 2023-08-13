@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AccountController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\NewsLetterController;
+use App\Http\Controllers\Admin\RealEstateController;
 use App\Http\Controllers\CKEditorController;
     /*
     |--------------------------------------------------------------------------
@@ -43,6 +44,11 @@ Route::prefix('admin/')->as('admin.')->middleware('auth')->group(function (){
             ->only('index', 'create', 'store', 'edit', 'update', 'destroy')
             ->parameters(['basinda-biz' => 'newsletter'])
             ->names('newsletter');
+
+    Route::resource('emlak', RealEstateController::class)
+            ->only('index', 'create', 'store', 'edit', 'update', 'destroy')
+            ->parameters(['emlak' => 'realestate'])
+            ->names('realestate');
 
     Route::post('ckeditor/image_upload', [CKEditorController::class, 'upload'])->name('upload');
 

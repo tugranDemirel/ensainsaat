@@ -22,6 +22,15 @@
                 </a>
             </li>
             <li class="title">
+                EMLAK YÖNETİMİ
+            </li>
+            <li class="active">
+                <a href="{{ route('admin.realestate.index') }}" class="">
+                    <i class="material-icons">home</i>
+                    <span class="nav-label">Emlak</span>
+                </a>
+            </li>
+            <li class="title">
                 SİTE YÖNETİMİ
             </li>
             <li class="active">

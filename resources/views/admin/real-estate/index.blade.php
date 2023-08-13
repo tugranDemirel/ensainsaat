@@ -42,42 +42,42 @@
                                     <td>{{ $realEstate->realEstateAttribute->price }}</td>
                                     <td>{{ $realEstate->address }}</td>
                                     <td>
-                                        @if($realEstate->status == \App\Enum\RealEstate\RealEstateGeneralEnum::STATUS_SOLD)
+                                        @if($realEstate->status == \App\Enum\RealEstate\RealEstateStatusEnum::STATUS_SOLD)
                                             <span class="label label-success">SATILDI</span>
-                                        @elseif($realEstate->status == \App\Enum\RealEstate\RealEstateGeneralEnum::STATUS_FOR_SALE)
+                                        @elseif($realEstate->status == \App\Enum\RealEstate\RealEstateStatusEnum::STATUS_FOR_SALE)
                                             <span class="label label-danger">SATILIK</span>
-                                        @elseif($realEstate->status == \App\Enum\RealEstate\RealEstateGeneralEnum::STATUS_FOR_RENT)
+                                        @elseif($realEstate->status == \App\Enum\RealEstate\RealEstateStatusEnum::STATUS_FOR_RENT)
                                             <span class="label label-warning">KİRALIK</span>
                                         @endif
                                     </td>
                                     <td>
-                                        @if($realEstate->type == \App\Enum\RealEstate\RealEstateGeneralEnum::TYPE_APARTMENT)
+                                        @if($realEstate->type == \App\Enum\RealEstate\RealEstateTypeEnum::TYPE_APARTMENT)
                                             <span class="label label-success">APARTMAN</span>
-                                        @elseif($realEstate->type == \App\Enum\RealEstate\RealEstateGeneralEnum::TYPE_RESIDENCE)
+                                        @elseif($realEstate->type == \App\Enum\RealEstate\RealEstateTypeEnum::TYPE_RESIDENCE)
                                             <span class="label label-danger">REZİDANS</span>
-                                        @elseif($realEstate->type == \App\Enum\RealEstate\RealEstateGeneralEnum::TYPE_VILLA)
+                                        @elseif($realEstate->type == \App\Enum\RealEstate\RealEstateTypeEnum::TYPE_VILLA)
                                             <span class="label label-warning">VİLLA</span>
-                                        @elseif($realEstate->type == \App\Enum\RealEstate\RealEstateGeneralEnum::TYPE_DUBLEX)
+                                        @elseif($realEstate->type == \App\Enum\RealEstate\RealEstateTypeEnum::TYPE_DUBLEX)
                                             <span class="label label-warning">DUBLEX</span>
-                                        @elseif($realEstate->type == \App\Enum\RealEstate\RealEstateGeneralEnum::TYPE_PENTHOUSE)
+                                        @elseif($realEstate->type == \App\Enum\RealEstate\RealEstateTypeEnum::TYPE_PENTHOUSE)
                                             <span class="label label-warning">ÇATI KATI</span>
-                                        @elseif($realEstate->type == \App\Enum\RealEstate\RealEstateGeneralEnum::TYPE_STUDIO)
+                                        @elseif($realEstate->type == \App\Enum\RealEstate\RealEstateTypeEnum::TYPE_STUDIO)
                                             <span class="label label-warning">STÜDYO</span>
-                                        @elseif($realEstate->type == \App\Enum\RealEstate\RealEstateGeneralEnum::TYPE_HOUSE)
+                                        @elseif($realEstate->type == \App\Enum\RealEstate\RealEstateTypeEnum::TYPE_HOUSE)
                                             <span class="label label-warning">EV</span>
                                         @endif
                                     </td>
                                     <td>
-                                        @if($realEstate->type == \App\Enum\RealEstate\RealEstateGeneralEnum::PURPOSE_RENT)
+                                        @if($realEstate->type == \App\Enum\RealEstate\RealEstatePurposeEnum::PURPOSE_RENT)
                                             <span class="label label-success">KİRALIK</span>
-                                        @elseif($realEstate->type == \App\Enum\RealEstate\RealEstateGeneralEnum::PURPOSE_SALE)
+                                        @elseif($realEstate->type == \App\Enum\RealEstate\RealEstatePurposeEnum::PURPOSE_SALE)
                                             <span class="label label-danger">SATILIK</span>
                                         @endif
                                     </td>
                                     <td>
-                                        @if($realEstate->type == \App\Enum\RealEstate\RealEstateGeneralEnum::IS_ACTIVE)
+                                        @if($realEstate->type == \App\Enum\RealEstate\RealEstateIsActiveEnum::IS_ACTIVE)
                                             <span class="label label-success">AKTİF</span>
-                                        @elseif($realEstate->type == \App\Enum\RealEstate\RealEstateGeneralEnum::IS_PASSIVE)
+                                        @elseif($realEstate->type == \App\Enum\RealEstate\RealEstateIsActiveEnum::IS_PASSIVE)
                                             <span class="label label-danger">PASİF</span>
                                         @endif
                                     </td>

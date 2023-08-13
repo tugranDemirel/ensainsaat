@@ -26,6 +26,9 @@ return new class extends Migration
             $table->string('video')->nullable(); // video url
             $table->string('map')->nullable(); // harita url
             $table->boolean('is_active')->default(true); // active real estate
+            $table->string('meta_title')->nullable(); // seo için meta title
+            $table->string('meta_description')->nullable(); // seo için meta description
+            $table->string('meta_keywords')->nullable(); // seo için meta keywords
             $table->timestamps();
         });
     }

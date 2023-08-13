@@ -2,6 +2,10 @@
 
 namespace App\Models;
 
+use App\Enum\RealEstate\RealEstateIsActiveEnum;
+use App\Enum\RealEstate\RealEstatePurposeEnum;
+use App\Enum\RealEstate\RealEstateStatusEnum;
+use App\Enum\RealEstate\RealEstateTypeEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -21,6 +25,13 @@ class RealEstate extends Model
         'video',
         'map',
         'is_active',
+    ];
+
+    protected $casts = [
+        'is_active' => RealEstateIsActiveEnum::class,
+        'status' => RealEstateStatusEnum::class,
+        'type' => RealEstateTypeEnum::class,
+        'purpose' => RealEstatePurposeEnum::class,
     ];
 
     public function realEstateMedias()

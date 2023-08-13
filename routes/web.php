@@ -30,7 +30,7 @@ Route::prefix('admin/')->as('admin.')->middleware('auth')->group(function (){
 
     Route::resource('hesap-ayarlari', AccountController::class)
             ->only('index', 'update')
-        ->parameters(['hesap-ayarlari' => 'user'])
+            ->parameters(['hesap-ayarlari' => 'user'])
             ->names('account');
     Route::resource('hizmetlerimiz', ServiceController::class)
             ->except('show')

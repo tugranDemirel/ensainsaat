@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AccountController;
 use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\NewsLetterController;
+use App\Http\Controllers\CKEditorController;
     /*
     |--------------------------------------------------------------------------
     | Web Routes
@@ -36,5 +38,12 @@ Route::prefix('admin/')->as('admin.')->middleware('auth')->group(function (){
             ->except('show')
             ->parameters(['hizmetlerimiz' => 'service'])
             ->names('service');
+
+    Route::resource('basinda-biz', NewsLetterController::class)
+            ->only('index', 'create', 'store', 'edit', 'update', 'destroy')
+            ->parameters(['basinda-biz' => 'newsletter'])
+            ->names('newsletter');
+
+    Route::post('ckeditor/image_upload', [CKEditorController::class, 'upload'])->name('upload');
 
 });

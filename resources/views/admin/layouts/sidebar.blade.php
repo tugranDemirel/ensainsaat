@@ -31,6 +31,12 @@
                 </a>
             </li>
             <li class="active">
+                <a href="{{ route('admin.newsletter.index') }}" class="">
+                    <i class="material-icons">newspaper</i>
+                    <span class="nav-label">Haberler</span>
+                </a>
+            </li>
+            <li class="active">
                 <a href="" class="">
                     <i class="material-icons">settings</i>
                     <span class="nav-label">Ayarlar</span>

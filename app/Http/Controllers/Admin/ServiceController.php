@@ -140,6 +140,7 @@ class ServiceController extends Controller
     {
 
             if ($service->delete()) {
+                self::deleteImage($service->image);
                 return redirect()->route('admin.service.index')->with('success', 'Service deleted successfully');
             } else {
                 return redirect()->route('admin.service.index')->with('error', 'Service deletion failed');

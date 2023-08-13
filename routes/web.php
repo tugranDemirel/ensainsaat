@@ -22,7 +22,7 @@ Auth::routes();
 
 Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::prefix('admin/')->as('admin.')->group(function (){
+Route::prefix('admin/')->as('admin.')->middleware('auth')->group(function (){
     Route::get('/', function () {
         return view('admin.index');
     })->name('home');
@@ -30,7 +30,7 @@ Route::prefix('admin/')->as('admin.')->group(function (){
 
     Route::resource('hesap-ayarlari', AccountController::class)
             ->only('index', 'update')
-            ->parameters(['hesap-ayarlari' => 'user'])
+        ->parameters(['hesap-ayarlari' => 'user'])
             ->names('account');
     Route::resource('hizmetlerimiz', ServiceController::class)
             ->except('show')

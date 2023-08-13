@@ -11,7 +11,7 @@ class RealEstateMedia extends Model
 
     protected $fillable = [
         'real_estate_id',
-        'image',
+        'images',
     ];
 
     public function realEstate()

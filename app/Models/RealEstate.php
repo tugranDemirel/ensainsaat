@@ -25,6 +25,9 @@ class RealEstate extends Model
         'video',
         'map',
         'is_active',
+        'meta_title',
+        'meta_description',
+        'meta_keywords'
     ];
 
     protected $casts = [

@@ -2,16 +2,17 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AccountController;
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Http\Controllers\Admin\ServiceController;
+    /*
+    |--------------------------------------------------------------------------
+    | Web Routes
+    |--------------------------------------------------------------------------
+    |
+    | Here is where you can register web routes for your application. These
+    | routes are loaded by the RouteServiceProvider within a group which
+    | contains the "web" middleware group. Now create something great!
+    |
+    */
 
 Route::get('/', function () {
     return view('welcome');
@@ -28,6 +29,12 @@ Route::prefix('admin/')->as('admin.')->group(function (){
 
 
     Route::resource('hesap-ayarlari', AccountController::class)
-            ->only('index', 'update')->names('account')
-            ->parameters(['hesap-ayarlari' => 'user']);
+            ->only('index', 'update')
+            ->parameters(['hesap-ayarlari' => 'user'])
+            ->names('account');
+    Route::resource('hizmetlerimiz', ServiceController::class)
+            ->except('show')
+            ->parameters(['hizmetlerimiz' => 'service'])
+            ->names('service');
+
 });

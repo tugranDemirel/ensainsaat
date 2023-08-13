@@ -25,6 +25,12 @@
                 SİTE YÖNETİMİ
             </li>
             <li class="active">
+                <a href="{{ route('admin.service.index') }}" class="">
+                    <i class="material-icons">source</i>
+                    <span class="nav-label">Servisler</span>
+                </a>
+            </li>
+            <li class="active">
                 <a href="" class="">
                     <i class="material-icons">settings</i>
                     <span class="nav-label">Ayarlar</span>

@@ -36,10 +36,10 @@
                                 <tr>
                                     <td>{{ $realEstate->id }}</td>
                                     <td>
-                                        <img src="{{ asset($realEstate->realEstateMedias->image[0]) }}" alt="{{ $realEstate->title }}" width="50" height="50">
+                                        <img src="{{ asset($realEstate->image) }}" alt="{{ $realEstate->title }}" width="50" height="50">
                                     </td>
                                     <td>{{ $realEstate->title }}</td>
-                                    <td>{{ $realEstate->realEstateAttribute->price }}</td>
+                                    <td>{{ $realEstate->realEstateAttribute[0]->price }}</td>
                                     <td>{{ $realEstate->address }}</td>
                                     <td>
                                         @if($realEstate->status == \App\Enum\RealEstate\RealEstateStatusEnum::STATUS_SOLD)
@@ -68,16 +68,16 @@
                                         @endif
                                     </td>
                                     <td>
-                                        @if($realEstate->type == \App\Enum\RealEstate\RealEstatePurposeEnum::PURPOSE_RENT)
+                                        @if($realEstate->purpose == \App\Enum\RealEstate\RealEstatePurposeEnum::PURPOSE_RENT)
                                             <span class="label label-success">KİRALIK</span>
-                                        @elseif($realEstate->type == \App\Enum\RealEstate\RealEstatePurposeEnum::PURPOSE_SALE)
+                                        @elseif($realEstate->purpose == \App\Enum\RealEstate\RealEstatePurposeEnum::PURPOSE_SALE)
                                             <span class="label label-danger">SATILIK</span>
                                         @endif
                                     </td>
                                     <td>
-                                        @if($realEstate->type == \App\Enum\RealEstate\RealEstateIsActiveEnum::IS_ACTIVE)
+                                        @if($realEstate->is_active == \App\Enum\RealEstate\RealEstateIsActiveEnum::IS_ACTIVE)
                                             <span class="label label-success">AKTİF</span>
-                                        @elseif($realEstate->type == \App\Enum\RealEstate\RealEstateIsActiveEnum::IS_PASSIVE)
+                                        @elseif($realEstate->is_active == \App\Enum\RealEstate\RealEstateIsActiveEnum::IS_PASSIVE)
                                             <span class="label label-danger">PASİF</span>
                                         @endif
                                     </td>

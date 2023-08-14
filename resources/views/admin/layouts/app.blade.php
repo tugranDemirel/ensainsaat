@@ -22,6 +22,7 @@
 
     <!-- Custom Css -->
     <link href="{{ asset('assets/admin/css/style.css') }}" rel="stylesheet" />
+
     @yield('styles')
 
 </head>

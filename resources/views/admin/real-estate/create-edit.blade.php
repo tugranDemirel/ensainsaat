@@ -4,7 +4,11 @@
     <script src="https://cdn.ckeditor.com/4.10.0/standard/ckeditor.js"></script>
     <!-- Spinners Css -->
     <link href="{{ asset('assets/admin/plugins/jquery.spinner/dist/css/bootstrap-spinner.css') }}" rel="stylesheet" />
-
+    <style>
+        .is-invalid {
+            border-color: red !important;
+        }
+    </style>
 @endsection
 @section('content')
 
@@ -50,43 +54,65 @@
                         <div class="form-group">
                             <div class="col-sm-6">
                                 <label for="purpose">Ev Kategorisi</label>
-                                <select class="form-control" id="purpose">
+                                <select class="form-control" id="purpose" name="purpose">
                                     <option value="">
                                         -- SEÇİM YAPINIZ --
                                     </option>
-                                    <option value="{{ \App\Enum\RealEstate\RealEstatePurposeEnum::PURPOSE_RENT }}">
+                                    <option value="{{ \App\Enum\RealEstate\RealEstatePurposeEnum::PURPOSE_RENT }}"
+                                        @if(\App\Enum\RealEstate\RealEstatePurposeEnum::PURPOSE_RENT == old('purpose'))
+                                            selected
+                                        @endif
+                                    >
                                         KİRALIK
                                     </option>
-                                    <option value="{{ \App\Enum\RealEstate\RealEstatePurposeEnum::PURPOSE_SALE }}">
+                                    <option value="{{ \App\Enum\RealEstate\RealEstatePurposeEnum::PURPOSE_SALE }}"
+                                        @if(\App\Enum\RealEstate\RealEstatePurposeEnum::PURPOSE_SALE == old('purpose'))
+                                            selected
+                                        @endif
+                                    >
                                         SATILIK
                                     </option>
                                 </select>
                             </div>
                             <div class="col-sm-6">
                                 <label for="type">Ev Tipi</label>
-                                <select class="form-control" id="type">
+                                <select class="form-control" id="type" name="type">
                                     <option value="">
                                         -- SEÇİM YAPINIZ --
                                     </option>
-                                    <option value="{{ \App\Enum\RealEstate\RealEstateTypeEnum::TYPE_APARTMENT }}">
+                                    <option value="{{ \App\Enum\RealEstate\RealEstateTypeEnum::TYPE_APARTMENT }}"
+                                        @if(\App\Enum\RealEstate\RealEstateTypeEnum::TYPE_APARTMENT == old('type') ) selected @endif
+                                    >
                                         APARTMAN
                                     </option>
-                                    <option value="{{ \App\Enum\RealEstate\RealEstateTypeEnum::TYPE_VILLA }}">
+                                    <option value="{{ \App\Enum\RealEstate\RealEstateTypeEnum::TYPE_VILLA }}"
+                                        @if(\App\Enum\RealEstate\RealEstateTypeEnum::TYPE_VILLA == old('type') ) selected @endif
+                                    >
                                         VİLLA
                                     </option>
-                                    <option value="{{ \App\Enum\RealEstate\RealEstateTypeEnum::TYPE_RESIDENCE }}">
+                                    <option value="{{ \App\Enum\RealEstate\RealEstateTypeEnum::TYPE_RESIDENCE }}"
+                                        @if(\App\Enum\RealEstate\RealEstateTypeEnum::TYPE_RESIDENCE == old('type') ) selected @endif
+                                    >
                                         RESİDENCE
                                     </option>
-                                    <option value="{{ \App\Enum\RealEstate\RealEstateTypeEnum::TYPE_DUBLEX }}">
+                                    <option value="{{ \App\Enum\RealEstate\RealEstateTypeEnum::TYPE_DUBLEX }}"
+                                        @if(\App\Enum\RealEstate\RealEstateTypeEnum::TYPE_DUBLEX == old('type') ) selected @endif
+                                    >
                                         DUBLEX
                                     </option>
-                                    <option value="{{ \App\Enum\RealEstate\RealEstateTypeEnum::TYPE_PENTHOUSE }}">
+                                    <option value="{{ \App\Enum\RealEstate\RealEstateTypeEnum::TYPE_PENTHOUSE }}"
+                                        @if(\App\Enum\RealEstate\RealEstateTypeEnum::TYPE_PENTHOUSE == old('type') ) selected @endif
+                                    >
                                         ÇATI KATI
                                     </option>
-                                    <option value="{{ \App\Enum\RealEstate\RealEstateTypeEnum::TYPE_STUDIO }}">
+                                    <option value="{{ \App\Enum\RealEstate\RealEstateTypeEnum::TYPE_STUDIO }}"
+                                        @if(\App\Enum\RealEstate\RealEstateTypeEnum::TYPE_STUDIO == old('type') ) selected @endif
+                                    >
                                         STÜDYO
                                     </option>
-                                    <option value="{{ \App\Enum\RealEstate\RealEstateTypeEnum::TYPE_HOUSE }}">
+                                    <option value="{{ \App\Enum\RealEstate\RealEstateTypeEnum::TYPE_HOUSE }}"
+                                        @if(\App\Enum\RealEstate\RealEstateTypeEnum::TYPE_HOUSE == old('type') ) selected @endif
+                                    >
                                         EV
                                     </option>
                                 </select>
@@ -95,31 +121,41 @@
                         <div class="form-group">
                                 <div class="col-sm-6">
                                     <label for="status">Ev Durumu</label>
-                                    <select class="form-control" id="status">
+                                    <select class="form-control" id="status" name="status">
                                         <option value="">
                                             -- SEÇİM YAPINIZ --
                                         </option>
-                                        <option value="{{ \App\Enum\RealEstate\RealEstateStatusEnum::STATUS_SOLD }}">
+                                        <option value="{{ \App\Enum\RealEstate\RealEstateStatusEnum::STATUS_SOLD }}"
+                                            @if(\App\Enum\RealEstate\RealEstateStatusEnum::STATUS_SOLD == old('status') ) selected @endif
+                                        >
                                             SATILDI
                                         </option>
-                                        <option value="{{ \App\Enum\RealEstate\RealEstateStatusEnum::STATUS_FOR_SALE }}">
+                                        <option value="{{ \App\Enum\RealEstate\RealEstateStatusEnum::STATUS_FOR_SALE }}"
+                                            @if(\App\Enum\RealEstate\RealEstateStatusEnum::STATUS_FOR_SALE == old('status') ) selected @endif
+                                        >
                                             SATILIKTA
                                         </option>
-                                        <option value="{{ \App\Enum\RealEstate\RealEstateStatusEnum::STATUS_FOR_RENT }}">
+                                        <option value="{{ \App\Enum\RealEstate\RealEstateStatusEnum::STATUS_FOR_RENT }}"
+                                            @if(\App\Enum\RealEstate\RealEstateStatusEnum::STATUS_FOR_RENT == old('status') ) selected @endif
+                                        >
                                             KİRALIKTA
                                         </option>
                                     </select>
                                 </div>
                                 <div class="col-sm-6">
                                     <label for="is_active">Ev Aktiflik Durumu</label>
-                                    <select class="form-control" id="is_active">
+                                    <select class="form-control" id="is_active" name="is_active">
                                         <option value="">
                                             -- SEÇİM YAPINIZ --
                                         </option>
-                                        <option value="{{ \App\Enum\RealEstate\RealEstateIsActiveEnum::IS_ACTIVE }}">
+                                        <option value="{{ \App\Enum\RealEstate\RealEstateIsActiveEnum::IS_ACTIVE }}"
+                                                @if(\App\Enum\RealEstate\RealEstateIsActiveEnum::IS_ACTIVE == old('is_active') ) selected @endif
+                                        >
                                             AKTİF
                                         </option>
-                                        <option value="{{ \App\Enum\RealEstate\RealEstateIsActiveEnum::IS_PASSIVE }}">
+                                        <option value="{{ \App\Enum\RealEstate\RealEstateIsActiveEnum::IS_PASSIVE }}"
+
+                                                @if(\App\Enum\RealEstate\RealEstateIsActiveEnum::IS_ACTIVE == old('is_active') ) selected @endif>
                                             AKTİF DEĞİL
                                         </option>
                                     </select>
@@ -170,22 +206,22 @@
                     <div class="form-group">
                         <div class="row clearfix">
                             <div class="col-md-4">
-                                <label>Fiyat</label>
+                                <label for="price">Fiyat</label>
                                 <div class="input-group">
-                                    <input type="number" class="form-control" name="area" value="{{ old('area') }}">
+                                    <input type="number" id="price" class="form-control" name="attributes[price]" value="{{ old('attributes[price]') }}">
                                     <span class="input-group-addon">00</span>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <label>Metre Kare</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" name="area" value="{{ old('area') }}">
+                                    <input type="number" class="form-control" name="attributes[area]" value="{{ old('attributes[area]') }}">
                                     <span class="input-group-addon">m2</span>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <label>Garaj Sayısı</label>
-                                <input type="number" class="form-control"  name="garages" value="{{ old('garages') }}" form-control">
+                                <input type="number" class="form-control"  name="attributes[garages]" value="{{ old('attributes[garages]') }}" form-control">
                             </div>
                         </div>
                     </div>
@@ -193,15 +229,15 @@
                         <div class="row clearfix">
                             <div class="col-md-4">
                                 <label>Yatak Odası Sayısı</label>
-                                <input type="number" class="form-control" name="bedrooms" value="{{ old('bedrooms') }}">
+                                <input type="number" class="form-control" name="attributes[bedrooms]" value="{{ old('attributes[bedrooms]') }}">
                             </div>
                             <div class="col-md-4">
                                 <label>Oturma Odası Sayısı</label>
-                                <input type="number" class="form-control" name="bathrooms" value="{{ old('bathrooms') }}">
+                                <input type="number" class="form-control" name="attributes[bathrooms]" value="{{ old('attributes[bathrooms]') }}">
                             </div>
                             <div class="col-md-4">
                                 <label>Yapım Yılı</label>
-                                <input type="date" class="form-control" name="year_built" value="{{ old('year_built') }}">
+                                <input type="date" class="form-control" name="attributes[year_built]" value="{{ old('attributes[year_built]') }}">
                             </div>
                         </div>
                     </div>

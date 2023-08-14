@@ -37,12 +37,7 @@ class RealEstateStoreRequest extends FormRequest
             'meta_title' => 'nullable',
             'meta_description' => 'nullable',
             'meta_keywords' => 'nullable',
-            'price' => 'required|numeric',
-            'area' => 'required',
-            'bedrooms' => 'required|numeric',
-            'bathrooms' => 'required|numeric',
-            'garages' => 'required|numeric',
-            'year_built' => 'required|date_format:Y-m-d',
+            'attributes.*' => 'required',
             'images' => 'nullable'
         ];
     }

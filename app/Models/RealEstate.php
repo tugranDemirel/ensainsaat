@@ -42,10 +42,13 @@ class RealEstate extends Model
         return $this->hasMany(RealEstateMedia::class);
     }
 
-    public function RealEstateAttribute()
+    public function realEstateAttributes()
     {
         return $this->hasMany(RealEstateAttribute::class);
     }
 
-
+    public function realEstateAttribute()
+    {
+        return $this->hasOne(RealEstateAttribute::class);
+    }
 }

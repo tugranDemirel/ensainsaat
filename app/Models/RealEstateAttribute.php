@@ -10,6 +10,7 @@ class RealEstateAttribute extends Model
     use HasFactory;
 
     protected $fillable = [
+        'real_estate_id',
         'price',
         'area',
         'bedrooms',

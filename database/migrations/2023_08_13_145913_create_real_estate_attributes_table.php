@@ -21,7 +21,7 @@ return new class extends Migration
             $table->integer('bedrooms'); // number of bedrooms
             $table->integer('bathrooms'); // number of bathrooms
             $table->integer('garages'); // number of garages
-            $table->integer('year_built'); // year built
+            $table->date('year_built'); // year built
             $table->timestamps();
         });
     }

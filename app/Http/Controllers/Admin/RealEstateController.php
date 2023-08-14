@@ -67,7 +67,6 @@ class RealEstateController extends Controller
 
         if ($data['image'])
             $data['image'] = self::uploadImage($data['image'], $this->_path);
-
         $realEstate = RealEstate::create($data);
 
         if ($realEstate)
@@ -96,7 +95,8 @@ class RealEstateController extends Controller
                 {
                     $create = RealEstateMedia::create([
                         'real_estate_id' => $realEstate->id,
-                        'image' => self::uploadImage($image, $this->_path)
+                        'uuid' => Str::uuid(),
+                        'images' => self::uploadImage($image, $this->_path)
                     ]);
                     if (!$create){
                         self::deleteImage($data['image'], $this->_path);
@@ -158,7 +158,7 @@ class RealEstateController extends Controller
             mkdir(public_path('images/'.$path), 0777, true);
         }
         $imageext = $image->extension();
-        $imageName = time() . '.' . $imageext;
+        $imageName = Str::uuid() . '.' . $imageext;
         $image->move(public_path('images/'.$path), $imageName);
         return 'images/'.$path . $imageName;
     }

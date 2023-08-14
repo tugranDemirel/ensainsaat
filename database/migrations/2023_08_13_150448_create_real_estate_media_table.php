@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('real_estate_media', function (Blueprint $table) {
             $table->id();
             $table->foreignId('real_estate_id')->constrained()->onDelete('cascade');
+            $table->uuid('uuid')->unique(); // uuid for image
             $table->string('images'); // image url
             $table->timestamps();
         });

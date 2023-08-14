@@ -23,7 +23,7 @@
                                 <th>Başlık</th>
                                 <th>Fiyat</th>
                                 <th>Adres</th>
-                                <th>Satıldı/Kiralandı/Kiralık Durumu</th>
+                                <th>Satıldı/Satılık/Kiralık Durumu</th>
                                 <th>Ev Tipi</th>
                                 <th>Ev Durumu(Satılık/Kiralık)</th>
                                 <th>Evin Aktiflik Durumu</th>
@@ -39,7 +39,7 @@
                                         <img src="{{ asset($realEstate->image) }}" alt="{{ $realEstate->title }}" width="50" height="50">
                                     </td>
                                     <td>{{ $realEstate->title }}</td>
-                                    <td>{{ $realEstate->realEstateAttribute[0]->price }}</td>
+                                    <td>{{ $realEstate->realEstateAttribute->price }}</td>
                                     <td>{{ $realEstate->address }}</td>
                                     <td>
                                         @if($realEstate->status == \App\Enum\RealEstate\RealEstateStatusEnum::STATUS_SOLD)

@@ -83,7 +83,7 @@
                                     </td>
                                     <td>{{ $realEstate->updated_at }}</td>
                                     <td>
-                                        <a href="{{ route('admin.newsletter.edit', ['newsletter' => $realEstate]) }}" class="btn btn-primary btn-sm"><i class="material-icons">edit</i></a>
+                                        <a href="{{ route('admin.realestate.edit', ['realestate' => $realEstate]) }}" class="btn btn-primary btn-sm"><i class="material-icons">edit</i></a>
                                         <button class="btn btn-danger btn-sm remove" data-id="{{ $realEstate->id }}" ><i class="material-icons">delete</i></a>
                                     </td>
                                 </tr>
@@ -107,7 +107,7 @@
         for (let i = 0; i < remove.length; i++){
             remove[i].addEventListener('click', function () {
                 let id = remove[i].attributes['data-id'].value;
-                let url = '{{ route('admin.newsletter.destroy', ['newsletter' => 'id']) }}'.replace('id', id);
+                let url = '{{ route('admin.realestate.destroy', ['realestate' => 'id']) }}'.replace('id', id);
                 $.ajax({
                     url: url,
                     type: 'DELETE',
@@ -118,7 +118,7 @@
                         window.location.reload();
                     },
                     error: function (data) {
-                        window.location.reload();
+                        //window.location.reload();
                     }
                 })
             })

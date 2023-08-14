@@ -8,6 +8,7 @@ use App\Enum\RealEstate\RealEstateStatusEnum;
 use App\Enum\RealEstate\RealEstateTypeEnum;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RealEstate\RealEstateStoreRequest;
+use App\Http\Requests\RealEstate\RealEstateUpdateRequest;
 use App\Models\RealEstate;
 use App\Models\RealEstateAttribute;
 use App\Models\RealEstateMedia;
@@ -38,7 +39,7 @@ class RealEstateController extends Controller
      */
     public function create()
     {
-        return view('admin.real-estate.create-edit');
+        return view('admin.real-estate.create');
     }
 
     /**
@@ -120,10 +121,10 @@ class RealEstateController extends Controller
      */
     public function edit(RealEstate $realestate)
     {
-        $realEstate = $realestate->load([
+        $realestate = $realestate->load([
             'realEstateMedias', 'realEstateAttribute'
         ]);
-        dd($realEstate);
+        return view('admin.real-estate.edit', compact('realestate'));
     }
 
     /**
@@ -133,9 +134,68 @@ class RealEstateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(RealEstateUpdateRequest $request, RealEstate $realestate)
     {
-        //
+
+        $data = $request->validated();
+
+        $data['slug'] = Str::slug($data['title']).now()->timestamp;
+        $data['type'] = $this->typeControl($data['type']);
+        $data['status'] = $this->statusControl($data['status']);
+        $data['purpose'] = $this->purposeControl($data['purpose']);
+        $data['is_active'] = $this->isActiveControl($data['is_active']);
+
+        $attributes = isset($data['attributes']) ? $data['attributes'] : null;
+        if ($data['attributes'] || is_null($data['attributes']))
+            unset($data['attributes']);
+
+        $images =  $data['images'] = isset($data['images']) ? $data['images'] : null;
+        if ($data['images'] || is_null($data['images']))
+            unset($data['images']);
+
+        if (isset($data['image']))
+            $data['image'] = self::uploadImage($data['image'], $this->_path, $realestate->image);
+
+
+        $realEstate = $realestate->update($data);
+
+        if ($realEstate)
+        {
+            if ($attributes && !is_null($attributes))
+            {
+                $create = RealEstateAttribute::create([
+                    'real_estate_id' => $realestate->id,
+                    'price' => $attributes['price'],
+                    'area' => $attributes['area'],
+                    'bedrooms' => $attributes['bedrooms'],
+                    'bathrooms' => $attributes['bathrooms'],
+                    'garages' => $attributes['garages'],
+                    'year_built' => $attributes['year_built'],
+
+                ]);
+                if (!$create){
+                    return redirect()->route('admin.realestate.index')->with('error', 'Emlak güncellenirken bir hata oluştu.');
+                }
+            }
+            if ($images && !is_null($images))
+            {
+                foreach ($images as $image)
+                {
+                    $create = RealEstateMedia::create([
+                        'real_estate_id' => $realestate->id,
+                        'uuid' => Str::uuid(),
+                        'images' => self::uploadImage($image, $this->_path)
+                    ]);
+                    if (!$create){
+                        return redirect()->route('admin.realestate.index')->with('error', 'Emlak güncellenirken bir hata oluştu.');
+                    }
+                }
+            }
+        }
+        if ($create)
+            return redirect()->route('admin.realestate.index')->with('success', 'Emlak başarıyla güncellendi.');
+        else
+            return redirect()->route('admin.realestate.index')->with('error', 'Emlak güncellenirken bir hata oluştu.');
     }
 
     /**
@@ -144,9 +204,17 @@ class RealEstateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(RealEstate $realestate)
     {
-        //
+
+        foreach($realestate->realEstateMedias as $media)
+            self::deleteImage($media->images, $this->_path);
+        $realestate->realEstateMedias()->delete();
+
+        $realestate->realEstateAttribute()->delete();
+
+        self::deleteImage($realestate->image);
+        $realestate->delete();
     }
 
     public static function uploadImage($image, $path, $oldImage = null)

@@ -11,6 +11,7 @@ use App\Http\Controllers\CKEditorController;
 use App\Http\Controllers\Front\FIndexController;
 use App\Http\Controllers\Front\FRealEstateController;
 use App\Http\Controllers\Front\FServiceController;
+use App\Http\Controllers\Front\FNewsLetterController;
     /*
     |--------------------------------------------------------------------------
     | Web Routes
@@ -32,6 +33,11 @@ Route::middleware('ViewShare')->group(function () {
     Route::as('service.')->group(function (){
         Route::get('/hizmetlerimiz',[FServiceController::class, 'index'])->name('index');
         Route::get('/hizmetlerimiz/{slug}',[FServiceController::class, 'show'])->name('show');
+    });
+
+    Route::as('newsletter.')->group(function (){
+        Route::get('/basinda-biz',[FNewsLetterController::class, 'index'])->name('index');
+        Route::get('/basinda-biz/{slug}',[FNewsLetterController::class, 'show'])->name('show');
     });
 });
 

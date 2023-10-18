@@ -69,7 +69,7 @@
                         </div>
                         <div class="cause-content">
 
-                            <h4><a href="project-details.html">{{ $home->title }}</a></h4>
+                            <h4><a href="{{ route('realestate.show', ['purpose' => $purposeUrl, 'slug' => $home->slug]) }}">{{ $home->title }}</a></h4>
                             <div class="cause-meta d-flex">
                                 <div class="author mr-15">
                                     {{ number_format($home->realEstateAttribute->price, 0, ',', '.') }} ₺

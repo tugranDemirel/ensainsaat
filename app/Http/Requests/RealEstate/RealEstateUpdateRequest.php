@@ -37,7 +37,7 @@ class RealEstateUpdateRequest extends FormRequest
             'meta_title' => 'nullable',
             'meta_description' => 'nullable',
             'meta_keywords' => 'nullable',
-            'attributes.*' => 'required',
+            'attributes.*' => 'nullable',
             'images' => 'nullable'
         ];
     }

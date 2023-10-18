@@ -116,8 +116,8 @@
                                     <li>
                                         <a class="has-arrow" href="{{ route('realestate.index') }}">Emlak</a>
                                         <ul class="sub-menu">
-                                            <li><a href="faq.html">Kiralık</a></li>
-                                            <li><a href="services-details.html">Satılık</a></li>
+                                            <li><a href="{{ route('realestate.purporse', ['purpose' => 'kiralik']) }}">Kiralık</a></li>
+                                            <li><a href="{{ route('realestate.purporse', ['purpose' => 'satilik']) }}">Satılık</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="about.html">Hakkımızda</a></li>
@@ -190,8 +190,8 @@
                     <li>
                         <a class="has-arrow" href="{{ route('realestate.index') }}">Emlak</a>
                         <ul class="sub-menu">
-                            <li><a href="faq.html">Kiralık</a></li>
-                            <li><a href="services-details.html">Satılık</a></li>
+                            <li><a href="{{ route('realestate.purporse', ['purpose' => 'kiralik']) }}">Kiralık</a></li>
+                            <li><a href="{{ route('realestate.purporse', ['purpose' => 'satilik']) }}">Satılık</a></li>
                         </ul>
                     </li>
                     <li><a href="about.html">Hakkımızda</a></li>

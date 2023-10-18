@@ -231,8 +231,8 @@
                         </div>
                 </div>
                 <!-- #END# Meta Data -->
-                <!-- Product Images -->
-                <div role="tabpanel" class="tab-pane fade" id="product_images">
+                <!-- Product Features -->
+                <div role="tabpanel" class="tab-pane fade otherAttributes" id="product_images">
                     <div class="form-group">
                         <div class="row clearfix">
                             <div class="col-md-4">
@@ -271,10 +271,29 @@
                             </div>
                         </div>
                     </div>
+                    <br>
+                    <button id="addOtherAttribute" class="btn btn-success btn-sm mt-1" type="button"><i class="fa fa-sellsy m-r-5"></i>Ek özellik ekle</button>
+                    <br>
+                    @isset($realestate->realEstateAttribute->other_features)
+                        @foreach(json_decode($realestate->realEstateAttribute->other_features, true) as $key => $value)
+                        <div class="form-group">
+                            <div class="row clearfix" >
+                                <div class="col-sm-4">
+                                    <label>Özellik Adı</label>
+                                    <input type="text" name="attributes[key][]" value="{{ $key }}" class="form-control @error('attributes[key]') is-invalid @enderror" />
+                                </div>
+                                <div class="col-sm-4">
+                                    <label>Özellik Değeri</label>
+                                    <input type="text" name="attributes[value][]" value="{{ $value }}" class="form-control @error('attributes[value]') is-invalid @enderror" />
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                    @endisset
                     </div>
-                </div>
-                <!-- #END# Product Images -->
             </div>
+                <!-- #END# Product Features -->
+
             <div class="m-t-10 m-b-20 pull-right">
                 <button class="btn btn-sm btn-success"><i class="fa fa-save m-r-5"></i>Güncelle</button>
             </div>
@@ -320,6 +339,39 @@
         $(document).on('click', '.remove-attribute', function (){
             let removeAttribute = document.querySelectorAll('.remove-attribute')
             $(this).parent().parent().parent().remove();
+        })
+    </script>
+
+    <script>
+        let otherattribute = document.getElementById('addOtherAttribute')
+        otherattribute.addEventListener('click', function (){
+            event.preventDefault();
+            var html = '<div class="form-group">' +
+                '<div class="row clearfix">' +
+                '<div class="col-sm-4">' +
+                '<label>Özellik Adı</label>' +
+                '<input type="text" name="attributes[key][]" value="{{ old('attributes[key]') }}" class="form-control @error('attributes[key]') is-invalid @enderror" />' +
+                '</div>' +
+
+                '<div class="col-sm-4">' +
+                '<label>Özellik Değeri</label>' +
+                '<input type="text" name="attributes[value][]" value="{{ old('attributes[value]') }}" class="form-control @error('attributes[value]') is-invalid @enderror" />' +
+                '</div>' +
+
+                '<div class="col-sm-4">' +
+                '<button class="btn btn-danger btn-sm remove-other-attribute" style="margin-top: 25px;"><i class="fa fa-recycle m-r-5"></i></button>' +
+                '</div>' +
+                '</div>' +
+                '</div>';
+            $('.otherAttributes').append(html);
+
+        })
+        $(document).on('click', '.remove-other-attribute', function (){
+            let removeOtherAttribute = document.querySelectorAll('.remove-other-attribute')
+            if(removeOtherAttribute.length > 0){
+                event.preventDefault();
+                $(this).parent().parent().parent().remove();
+            }
         })
     </script>
 @endsection

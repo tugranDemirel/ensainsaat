@@ -17,6 +17,11 @@ class RealEstateAttribute extends Model
         'bathrooms',
         'garages',
         'year_built',
+        'other_features'
+    ];
+
+    protected $casts = [
+        'other_features' => 'array'
     ];
 
     public function realEstate()

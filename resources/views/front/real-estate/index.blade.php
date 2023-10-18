@@ -33,147 +33,48 @@
                     <div class="section-title-2">
                         <span>Emlak</span>
                         <p>Emlak</p>
-                        <h1>İlanda Olanlar</h1>
+                        <h1>İlandakiler</h1>
                     </div>
                 </div>
             </div>
             <div class="row mb-20">
                 <div class="col-12 col-lg-12 text-center">
                     <div class="portfolio-cat-filter">
-                        <button data-filter="*" class="active">Hepsi</button>
-                        <button data-filter=".rent">Kiralık</button>
-                        <button data-filter=".sale">Satılık</button>
+                        @if(isset($purpose) && ($purpose == \App\Enum\RealEstate\RealEstatePurposeEnum::PURPOSE_RENT || $purpose == \App\Enum\RealEstate\RealEstatePurposeEnum::PURPOSE_SALE))
+                            @if(isset($purpose) && $purpose == \App\Enum\RealEstate\RealEstatePurposeEnum::PURPOSE_RENT)
+                                <button data-filter=".rent" class="active">Kiralık</button>
+                            @endif
+                            @if(isset($purpose) && $purpose == \App\Enum\RealEstate\RealEstatePurposeEnum::PURPOSE_SALE)
+                                <button data-filter=".sale" class="active">Satılık</button>
+                            @endif
+                        @else
+                            <button data-filter="*" class="active">Hepsi</button>
+                            <button data-filter=".rent">Kiralık</button>
+                            <button data-filter=".sale">Satılık</button>
+                        @endif
                     </div>
                 </div>
             </div>
 
             <div class="row grid">
-                <div class="col-xl-3 col-md-6 grid-item sale">
-                    <div class="single-cause-item">
-                        <div class="cause-bg bg-cover" style="background-image: url('assets/img/portfolio/project1.jpg');">
-                            <a href="project-details.html" class="icon"><i class="fal fa-long-arrow-right"></i></a>
-                        </div>
-                        <div class="cause-content">
-                            <div class="cause-meta d-flex">
-                                <div class="author mr-15">
-                                    Rosalina D.
-                                </div>
-                                |
-                                <div class="project-amount ml-15">
-                                    $56,000
-                                </div>
-                            </div>
-                            <h4><a href="project-details.html">Rosali Office Design</a></h4>
-                        </div>
-                    </div> <!-- /.single-cause-item  -->
-                </div><div class="col-xl-3 col-md-6 grid-item sale">
-                    <div class="single-cause-item">
-                        <div class="cause-bg bg-cover" style="background-image: url('assets/img/portfolio/project1.jpg');">
-                            <a href="project-details.html" class="icon"><i class="fal fa-long-arrow-right"></i></a>
-                        </div>
-                        <div class="cause-content">
-                            <div class="cause-meta d-flex">
-                                <div class="author mr-15">
-                                    Rosalina D.
-                                </div>
-                                |
-                                <div class="project-amount ml-15">
-                                    $56,000
-                                </div>
-                            </div>
-                            <h4><a href="project-details.html">Rosali Office Design</a></h4>
-                        </div>
-                    </div> <!-- /.single-cause-item  -->
-                </div><div class="col-xl-3 col-md-6 grid-item sale">
-                    <div class="single-cause-item">
-                        <div class="cause-bg bg-cover" style="background-image: url('assets/img/portfolio/project1.jpg');">
-                            <a href="project-details.html" class="icon"><i class="fal fa-long-arrow-right"></i></a>
-                        </div>
-                        <div class="cause-content">
-                            <div class="cause-meta d-flex">
-                                <div class="author mr-15">
-                                    Rosalina D.
-                                </div>
-                                |
-                                <div class="project-amount ml-15">
-                                    $56,000
-                                </div>
-                            </div>
-                            <h4><a href="project-details.html">Rosali Office Design</a></h4>
-                        </div>
-                    </div> <!-- /.single-cause-item  -->
-                </div><div class="col-xl-3 col-md-6 grid-item sale">
-                    <div class="single-cause-item">
-                        <div class="cause-bg bg-cover" style="background-image: url('assets/img/portfolio/project1.jpg');">
-                            <a href="project-details.html" class="icon"><i class="fal fa-long-arrow-right"></i></a>
-                        </div>
-                        <div class="cause-content">
-                            <div class="cause-meta d-flex">
-                                <div class="author mr-15">
-                                    Rosalina D.
-                                </div>
-                                |
-                                <div class="project-amount ml-15">
-                                    $56,000
-                                </div>
-                            </div>
-                            <h4><a href="project-details.html">Rosali Office Design</a></h4>
-                        </div>
-                    </div> <!-- /.single-cause-item  -->
-                </div><div class="col-xl-3 col-md-6 grid-item  rent">
-                    <div class="single-cause-item">
-                        <div class="cause-bg bg-cover" style="background-image: url('assets/img/portfolio/project1.jpg');">
-                            <a href="project-details.html" class="icon"><i class="fal fa-long-arrow-right"></i></a>
-                        </div>
-                        <div class="cause-content">
-                            <div class="cause-meta d-flex">
-                                <div class="author mr-15">
-                                    Rosalina D.
-                                </div>
-                                |
-                                <div class="project-amount ml-15">
-                                    $56,000
-                                </div>
-                            </div>
-                            <h4><a href="project-details.html">Rosali Office Design</a></h4>
-                        </div>
-                    </div> <!-- /.single-cause-item  -->
-                </div><div class="col-xl-3 col-md-6 grid-item  rent">
-                    <div class="single-cause-item">
-                        <div class="cause-bg bg-cover" style="background-image: url('assets/img/portfolio/project1.jpg');">
-                            <a href="project-details.html" class="icon"><i class="fal fa-long-arrow-right"></i></a>
-                        </div>
-                        <div class="cause-content">
-                            <div class="cause-meta d-flex">
-                                <div class="author mr-15">
-                                    Rosalina D.
-                                </div>
-                                |
-                                <div class="project-amount ml-15">
-                                    $56,000
-                                </div>
-                            </div>
-                            <h4><a href="project-details.html">Rosali Office Design</a></h4>
-                        </div>
-                    </div> <!-- /.single-cause-item  -->
-                </div>
                 @foreach($homes as $home)
-                <div class="col-xl-3 col-md-6 grid-item {{ $home->purpose === 1 ? 'rent' : 'sale' }} ">
+                    @php
+                        $pr = $home->purpose == \App\Enum\RealEstate\RealEstatePurposeEnum::PURPOSE_RENT ? 'rent' : 'sale';
+                        $purposeUrl = $home->purpose == \App\Enum\RealEstate\RealEstatePurposeEnum::PURPOSE_RENT ? 'kiralik' : 'satilik';
+                    @endphp
+                <div class="col-xl-3 col-md-6 grid-item {{ $pr }}">
                     <div class="single-cause-item">
-                        <div class="cause-bg bg-cover" style="background-image: url('assets/img/portfolio/project1.jpg');">
-                            <a href="project-details.html" class="icon"><i class="fal fa-long-arrow-right"></i></a>
+                        <div class="cause-bg bg-cover" style="background-image: url({{ asset($home->image) }});">
+                            <a href="{{ route('realestate.show', ['purpose' => $purposeUrl, 'slug' => $home->slug]) }}" class="icon"><i class="fal fa-long-arrow-right"></i></a>
                         </div>
                         <div class="cause-content">
+
+                            <h4><a href="project-details.html">{{ $home->title }}</a></h4>
                             <div class="cause-meta d-flex">
                                 <div class="author mr-15">
-                                    Rosalina D.
-                                </div>
-                                |
-                                <div class="project-amount ml-15">
-                                    $56,000
+                                    {{ number_format($home->realEstateAttribute->price, 0, ',', '.') }} ₺
                                 </div>
                             </div>
-                            <h4><a href="project-details.html">Rosali Office Design</a></h4>
                         </div>
                     </div> <!-- /.single-cause-item  -->
                 </div>

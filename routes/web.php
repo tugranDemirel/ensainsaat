@@ -24,6 +24,8 @@ Route::middleware('ViewShare')->group(function () {
     Route::get('/', [FIndexController::class, 'index'])->name('home');
 
     Route::get('/emlak', [FRealEstateController::class, 'index'])->name('realestate.index');
+    Route::get('/emlak/{purpose}', [FRealEstateController::class, 'purposeHome'])->name('realestate.purporse');
+    Route::get('/emlak/{purpose}/{slug}', [FRealEstateController::class, 'show'])->name('realestate.show');
 });
 
 

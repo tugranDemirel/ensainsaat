@@ -68,6 +68,11 @@ class RealEstateController extends Controller
 
         if ($data['image'])
             $data['image'] = self::uploadImage($data['image'], $this->_path);
+        $otherFetaures = [];
+        foreach ($attributes['key'] as $key => $value)
+        {
+            $otherFetaures[$value] = $attributes['value'][$key];
+        }
         $realEstate = RealEstate::create($data);
 
         if ($realEstate)
@@ -82,6 +87,7 @@ class RealEstateController extends Controller
                         'bathrooms' => $attributes['bathrooms'],
                         'garages' => $attributes['garages'],
                         'year_built' => $attributes['year_built'],
+                        'other_features' => $otherFetaures ? json_encode($otherFetaures) : ''
 
                     ]);
                     if (!$create){
@@ -157,12 +163,18 @@ class RealEstateController extends Controller
             $data['image'] = self::uploadImage($data['image'], $this->_path, $realestate->image);
 
 
+        $otherFetaures = [];
+        foreach ($attributes['key'] as $key => $value)
+        {
+            $otherFetaures[$value] = $attributes['value'][$key];
+        }
         $realEstate = $realestate->update($data);
 
         if ($realEstate)
         {
             if ($attributes && !is_null($attributes))
             {
+                $realestate->realEstateAttribute()->delete();
                 $create = RealEstateAttribute::create([
                     'real_estate_id' => $realestate->id,
                     'price' => $attributes['price'],
@@ -171,6 +183,7 @@ class RealEstateController extends Controller
                     'bathrooms' => $attributes['bathrooms'],
                     'garages' => $attributes['garages'],
                     'year_built' => $attributes['year_built'],
+                    'other_features' => $otherFetaures ? json_encode($otherFetaures) : ''
 
                 ]);
                 if (!$create){

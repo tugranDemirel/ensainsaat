@@ -114,7 +114,7 @@
 
                                     <li><a href="{{ route('home') }}">Anasayfa</a></li>
                                     <li>
-                                        <a class="has-arrow" href="#">Emlak</a>
+                                        <a class="has-arrow" href="{{ route('realestate.index') }}">Emlak</a>
                                         <ul class="sub-menu">
                                             <li><a href="faq.html">Kiralık</a></li>
                                             <li><a href="services-details.html">Satılık</a></li>
@@ -188,7 +188,7 @@
                 <ul>
                     <li><a href="{{ route('home') }}">Anasayfa</a></li>
                     <li>
-                        <a class="has-arrow" href="#">Emlak</a>
+                        <a class="has-arrow" href="{{ route('realestate.index') }}">Emlak</a>
                         <ul class="sub-menu">
                             <li><a href="faq.html">Kiralık</a></li>
                             <li><a href="services-details.html">Satılık</a></li>

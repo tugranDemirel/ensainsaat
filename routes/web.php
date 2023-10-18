@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\CKEditorController;
 
 use App\Http\Controllers\Front\FIndexController;
+use App\Http\Controllers\Front\FRealEstateController;
     /*
     |--------------------------------------------------------------------------
     | Web Routes
@@ -21,6 +22,8 @@ use App\Http\Controllers\Front\FIndexController;
     */
 Route::middleware('ViewShare')->group(function () {
     Route::get('/', [FIndexController::class, 'index'])->name('home');
+
+    Route::get('/emlak', [FRealEstateController::class, 'index'])->name('realestate.index');
 });
 
 

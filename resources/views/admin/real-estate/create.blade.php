@@ -1,5 +1,6 @@
 @extends('admin.layouts.app')
 
+@section('title',  'Emlak Ekle')
 @section('styles')
     <script src="https://cdn.ckeditor.com/4.10.0/standard/ckeditor.js"></script>
     <!-- Spinners Css -->
@@ -14,7 +15,7 @@
 
 
     <div class="page-body">
-        @section('page_title', isset($service) ? 'Servis Düzenle' : 'Servis Ekle')
+        @section('page_title', isset($realestate) ? 'Emlak Düzenle' : 'Emlak Ekle')
         <div class="clearfix">
             <ul class="nav nav-tabs" role="tablist">
                 <li role="presentation" class="active"><a href="#basic_info" role="tab" data-toggle="tab">Genel Bilgiler</a></li>
@@ -178,7 +179,7 @@
                                 <input type="file" name="image" value="{{ old('image') }}" class="form-control @error('image') is-invalid @enderror" />
                             </div>
                             <div class="col-sm-6">
-                                <button class="btn btn-danger btn-sm remove-attribute" style="margin-top: 25px;"><i class="fa fa-recycle m-r-5"></i></button>
+                                <button type="button" class="btn btn-danger btn-sm remove-attribute" style="margin-top: 25px;"><i class="fa fa-recycle m-r-5"></i></button>
                             </div>
                         </div>
                     </div>
@@ -290,9 +291,12 @@
         $(document).on('click', '.remove-attribute', function (){
             let removeAttribute = document.querySelectorAll('.remove-attribute')
             if(removeAttribute.length > 1){
+                event.preventDefault();
                 $(this).parent().parent().parent().remove();
             }else
             {
+
+                event.preventDefault();
                 alert('En az 1 özellik olmalıdır.')
             }
         })

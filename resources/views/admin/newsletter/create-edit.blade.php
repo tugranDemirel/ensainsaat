@@ -1,5 +1,6 @@
 @extends('admin.layouts.app')
 
+@section('title',  isset($newsletter) ? 'Basında Biz Düzenle' : 'Basında Biz Ekle')
 @section('styles')
     <script src="https://cdn.ckeditor.com/4.10.0/standard/ckeditor.js"></script>
 @endsection

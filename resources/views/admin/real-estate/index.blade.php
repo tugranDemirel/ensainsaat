@@ -1,5 +1,6 @@
 @extends('admin.layouts.app')
 
+@section('title',  'Emlak')
 @section('content')
 
     <div class="page-body">

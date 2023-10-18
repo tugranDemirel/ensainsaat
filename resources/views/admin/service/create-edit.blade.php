@@ -1,5 +1,6 @@
 @extends('admin.layouts.app')
 
+@section('title',  'Servis-Hizmet Ekle')
 @section('styles')
     <script src="https://cdn.ckeditor.com/4.10.0/standard/ckeditor.js"></script>
 @endsection

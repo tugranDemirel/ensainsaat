@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AccountController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\NewsLetterController;
 use App\Http\Controllers\Admin\RealEstateController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\CKEditorController;
     /*
     |--------------------------------------------------------------------------
@@ -49,6 +50,12 @@ Route::prefix('admin/')->as('admin.')->middleware('auth')->group(function (){
             ->only('index', 'create', 'store', 'edit', 'update', 'destroy')
             ->parameters(['emlak' => 'realestate'])
             ->names('realestate');
+
+
+    Route::resource('site-ayarlari', SettingController::class)
+            ->only('index', 'store','update')
+            ->parameters(['site-ayarlari' => 'setting'])
+            ->names('setting');
 
     Route::post('ckeditor/image_upload', [CKEditorController::class, 'upload'])->name('upload');
 

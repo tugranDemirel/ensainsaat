@@ -1,5 +1,6 @@
 @extends('admin.layouts.app')
 
+@section('title',  isset($user) ? 'Hesap Ayarları Düzenle' : 'Hesap Ayarları Ekle')
 @section('content')
 
         <div class="page-body clearfix">

@@ -18,7 +18,7 @@
                     </div>
 
                     <div class="page-heading text-white">
-                        <h1>İlanda Olanlar</h1>
+                        <h1>İlandakiler</h1>
                     </div>
                 </div>
             </div>

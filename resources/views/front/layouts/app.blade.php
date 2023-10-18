@@ -121,7 +121,7 @@
                                         </ul>
                                     </li>
                                     <li><a href="about.html">Hakkımızda</a></li>
-                                    <li><a href="services.html">Hizmetlerimiz</a></li>
+                                    <li><a href="{{ route('service.index') }}">Hizmetlerimiz</a></li>
                                     <li><a href="news.html">Basında Biz</a></li>
                                     <li><a href="contact.html">İletişim</a></li>
                                 </ul>
@@ -195,7 +195,7 @@
                         </ul>
                     </li>
                     <li><a href="about.html">Hakkımızda</a></li>
-                    <li><a href="services.html">Hizmetlerimiz</a></li>
+                    <li><a href="{{ route('service.index') }}">Hizmetlerimiz</a></li>
                     <li><a href="news.html">Basında Biz</a></li>
                     <li><a href="contact.html">İletişim</a></li>
                 </ul>

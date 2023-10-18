@@ -10,6 +10,7 @@ use App\Http\Controllers\CKEditorController;
 
 use App\Http\Controllers\Front\FIndexController;
 use App\Http\Controllers\Front\FRealEstateController;
+use App\Http\Controllers\Front\FServiceController;
     /*
     |--------------------------------------------------------------------------
     | Web Routes
@@ -22,10 +23,16 @@ use App\Http\Controllers\Front\FRealEstateController;
     */
 Route::middleware('ViewShare')->group(function () {
     Route::get('/', [FIndexController::class, 'index'])->name('home');
+    Route::as('realestate.')->group(function (){
+        Route::get('/emlak', [FRealEstateController::class, 'index'])->name('index');
+        Route::get('/emlak/{purpose}', [FRealEstateController::class, 'purposeHome'])->name('purporse');
+        Route::get('/emlak/{purpose}/{slug}', [FRealEstateController::class, 'show'])->name('show');
+    });
 
-    Route::get('/emlak', [FRealEstateController::class, 'index'])->name('realestate.index');
-    Route::get('/emlak/{purpose}', [FRealEstateController::class, 'purposeHome'])->name('realestate.purporse');
-    Route::get('/emlak/{purpose}/{slug}', [FRealEstateController::class, 'show'])->name('realestate.show');
+    Route::as('service.')->group(function (){
+        Route::get('/hizmetlerimiz',[FServiceController::class, 'index'])->name('index');
+        Route::get('/hizmetlerimiz/{slug}',[FServiceController::class, 'show'])->name('show');
+    });
 });
 
 

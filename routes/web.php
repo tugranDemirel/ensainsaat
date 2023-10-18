@@ -7,6 +7,8 @@ use App\Http\Controllers\Admin\NewsLetterController;
 use App\Http\Controllers\Admin\RealEstateController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\CKEditorController;
+
+use App\Http\Controllers\Front\FIndexController;
     /*
     |--------------------------------------------------------------------------
     | Web Routes
@@ -17,10 +19,10 @@ use App\Http\Controllers\CKEditorController;
     | contains the "web" middleware group. Now create something great!
     |
     */
-
-Route::get('/', function () {
-    return view('welcome');
+Route::middleware('ViewShare')->group(function () {
+    Route::get('/', [FIndexController::class, 'index'])->name('home');
 });
+
 
 Auth::routes();
 
@@ -30,7 +32,6 @@ Route::prefix('admin/')->as('admin.')->middleware('auth')->group(function (){
     Route::get('/', function () {
         return view('admin.index');
     })->name('home');
-
 
     Route::resource('hesap-ayarlari', AccountController::class)
             ->only('index', 'update')

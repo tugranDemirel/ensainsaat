@@ -67,19 +67,19 @@
                                         <i class="fal fa-phone"></i>
                                     </div>
                                     <div class="contact-info">
-                                        <span>Telefon Numarası</span>
+                                        <span>Telefon</span>
                                         <p>{{ $_setting->phone }}</p>
                                     </div>
                                 </div>
                             @endif
 
-                            @if(!is_null($_setting->phone))
+                            @if(!is_null($_setting->email))
                                 <div class="single-contact-info">
                                     <div class="icon">
                                         <i class="fal fa-envelope"></i>
                                     </div>
                                     <div class="contact-info">
-                                        <span>Email Adresi</span>
+                                        <span>Email</span>
                                         <p>{{$_setting->email}}</p>
                                     </div>
                                 </div>

@@ -48,48 +48,55 @@
 <header class="header-wrapper header-1">
     <div class="container">
         <div class="row middle-bar justify-content-between align-items-center">
+            @if(!is_null($_setting->logo))
             <div class="col-xl-3 col-lg-12 col-6 text-lg-center text-xl-left ">
                 <div class="logo mb-lg-4 mb-xl-0 text-xl-left">
-                    <a href="index-2.html"><img src="assets/img/logo.png" alt="logo"></a>
+                    <a href="{{ route('home') }}"><img src="{{ asset($_setting->logo) }}" alt="{{ $_setting->title }}"></a>
                 </div>
             </div>
+            @endif
             <div class="col-xl-9 col-lg-12 d-none d-lg-block">
                 <div class="header-info-element ml-xl-5 ml-md-4 d-flex justify-content-between align-items-center">
+                    @if(!is_null($_setting->address))
                     <div class="single-info-element">
                         <div class="icon">
                             <i class="fal fa-map-marked-alt"></i>
                         </div>
                         <div class="text">
-                            <h5>visit our location:</h5>
-                            <span>West Jakarta City, UK</span>
+                            <h5>Bizi Ziyaret Edin:</h5>
+                            <span>{{ $_setting->address }}</span>
                         </div>
                     </div>
+                    @endif
                     <div class="single-info-element">
                         <div class="icon">
                             <i class="fal fa-clock"></i>
                         </div>
                         <div class="text">
-                            <h5>Opening Hours:</h5>
-                            <span>Mon-Fri 8am-5pm</span>
+                            <h5>Çalışma Saatlerimiz:</h5>
+                            <span>P.tesi/Cuma 08.00-18.00</span>
                         </div>
                     </div>
+
+                    @if(!is_null($_setting->email))
                     <div class="single-info-element">
                         <div class="icon">
                             <i class="fal fa-envelope"></i>
                         </div>
                         <div class="text">
-                            <h5>send us mail</h5>
-                            <span>info@example.com</span>
+                            <h5>Mail Gönderin</h5>
+                            <span><a href="mailto:{{ $_setting->email }}">{{ $_setting->email }}</a></span>
                         </div>
                     </div>
+                    @endif
                     <div class="cta-btn">
-                        <a href="#" class="theme-btn">get a quote</a>
+                        <a href="#" class="theme-btn">fiyat al</a>
                     </div>
                 </div>
             </div>
             <div class="col-6 justify-content-end align-items-center d-flex d-lg-none">
                 <div class="header-btn d-none-mobile">
-                    <a href="contact.html" class="theme-btn">get a quote</a>
+                    <a href="contact.html" class="theme-btn">teklif al</a>
                 </div>
 
                 <div class="mobile-nav-bar ml-15">
@@ -104,67 +111,69 @@
                             </button>
                             <nav class="sidebar-nav">
                                 <ul class="metismenu" id="mobile-menu">
-                                    <li><a class="has-arrow" href="#">Homes</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="index-2.html">Homepage 1</a></li>
-                                            <li><a href="index-3.html">Homepage 2</a></li>
-                                            <li><a href="index-4.html">Homepage 3</a></li>
-                                            <li><a href="index-5.html">Homepage 4</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="about.html">about</a></li>
-                                    <li><a href="services.html">services</a></li>
+
+                                    <li><a href="{{ route('home') }}">Anasayfa</a></li>
                                     <li>
-                                        <a class="has-arrow" href="#">Pages</a>
+                                        <a class="has-arrow" href="#">Emlak</a>
                                         <ul class="sub-menu">
-                                            <li><a href="faq.html">faq</a></li>
-                                            <li><a href="services-details.html">services details</a></li>
-                                            <li><a href="team.html">Team</a></li>
+                                            <li><a href="faq.html">Kiralık</a></li>
+                                            <li><a href="services-details.html">Satılık</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="news.html">News</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="about.html">Hakkımızda</a></li>
+                                    <li><a href="services.html">Hizmler</a></li>
+                                    <li><a href="news.html">Basında Biz</a></li>
+                                    <li><a href="contact.html">İletişim</a></li>
                                 </ul>
                             </nav>
 
                             <div class="action-bar text-white">
+                                @if(!is_null($_setting->address))
                                 <div class="single-info-element">
                                     <div class="icon">
                                         <i class="fal fa-map-marked-alt"></i>
                                     </div>
+
                                     <div class="text">
-                                        <h5>visit our location:</h5>
-                                        <span>West Jakarta City, UK</span>
+                                        <h5>Bizi ziyaret edin</h5>
+                                        <span>{{ $_setting->address }}</span>
                                     </div>
                                 </div>
+                                @endif
+                                @if(!is_null($_setting->address))
                                 <div class="single-info-element">
                                     <div class="icon">
                                         <i class="fal fa-clock"></i>
                                     </div>
                                     <div class="text">
                                         <h5>Opening Hours:</h5>
-                                        <span>Mon-Fri 8am-5pm</span>
+                                        <span>P.tesi/Cuma 08.00-18.00</span>
                                     </div>
                                 </div>
+                                @endif
+                                @if(!is_null($_setting->email))
                                 <div class="single-info-element">
                                     <div class="icon">
                                         <i class="fal fa-envelope"></i>
                                     </div>
                                     <div class="text">
-                                        <h5>Send us mail</h5>
-                                        <span>info@example.com</span>
+                                        <h5>Mail Gönderin</h5>
+                                        <span><a href="mailto:{{ $_setting->email }}" target="_blank">{{ $_setting->email }}</a></span>
                                     </div>
                                 </div>
+                                @endif
+                                @if(!is_null($_setting->phone))
                                 <div class="call-us">
                                     <div class="icon text-white">
                                         <i class="fal fa-phone-volume"></i>
                                     </div>
                                     <div class="text">
-                                        <h5>Troll free number</h5>
-                                        <span>+09 949 858327</span>
+                                        <h5>İletişim Numarası</h5>
+                                        <span><a href="tel:{{ $_setting->phone }}">{{ $_setting->phone }}</a></span>
                                     </div>
                                 </div>
-                                <a href="contact.html" class="theme-btn mt-4">get a touch <i class="fal fa-arrow-right"></i></a>
+                                @endif
+                                <a href="contact.html" class="theme-btn mt-4">Teklif Al <i class="fal fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -177,38 +186,34 @@
         <div class="container d-flex justify-content-between align-items-center">
             <div class="main-menu">
                 <ul>
-                    <li><a href="index-2.html">Home</a>
+                    <li><a href="{{ route('home') }}">Anasayfa</a></li>
+                    <li>
+                        <a class="has-arrow" href="#">Emlak</a>
                         <ul class="sub-menu">
-                            <li><a href="index-2.html">Homepage 1</a></li>
-                            <li><a href="index-3.html">Homepage 2</a></li>
-                            <li><a href="index-4.html">Homepage 3</a></li>
-                            <li><a href="index-5.html">Homepage 4</a></li>
+                            <li><a href="faq.html">Kiralık</a></li>
+                            <li><a href="services-details.html">Satılık</a></li>
                         </ul>
                     </li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="news.html">News</a></li>
-                    <li><a href="#">Pages</a>
-                        <ul class="sub-menu">
-                            <li><a href="team.html">team</a></li>
-                            <li><a href="faq.html">faq</a></li>
-                            <li><a href="projects.html">projects</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="about.html">Hakkımızda</a></li>
+                    <li><a href="services.html">Hizmler</a></li>
+                    <li><a href="news.html">Basında Biz</a></li>
+                    <li><a href="contact.html">İletişim</a></li>
                 </ul>
             </div>
+
+            @if(!is_null($_setting->phone))
             <div class="call-us-cta">
                 <div class="call-us text-white">
                     <div class="icon">
                         <i class="fal fa-phone-volume"></i>
                     </div>
                     <div class="text">
-                        <h5>Troll free number</h5>
-                        <span>+09 949 858327</span>
+                        <h5>İletişim Numarası</h5>
+                        <span><a href="tel:{{ $_setting->phone }}">{{ $_setting->phone }}</a></span>
                     </div>
                 </div>
             </div>
+            @endif
         </div>
     </div>
 </header>

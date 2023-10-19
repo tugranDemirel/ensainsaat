@@ -18,14 +18,14 @@
                     <div class="col-md-6 col-xl-3 col-12">
                         <div class="single-footer-wid recent_post_widget">
                             <div class="wid-title">
-                                <h4>Emlak</h4>
+                                <h4>Emlak Vitrini</h4>
                             </div>
                             @foreach($_realEstates as $_realEstate)
                                 <div class="recent-post-list">
                                     <div class="single-recent-post">
                                         <div class="thumb bg-cover" style="background-image: url({{ asset($_realEstate->image) }});"></div>
                                         <div class="post-data">
-                                            <span><i class="fal fa-money-bill"></i>{{ $_realEstate->realEstateAttribute->price }}</span>
+                                            <span>  {{ number_format($_realEstate->realEstateAttribute->price, 0, ',', '.') }} ₺</span>
                                             <h5> <a href="{{ $_realEstate->slug }}"></a>{{ $_realEstate->title }}</h5>
                                         </div>
                                     </div>

@@ -4,7 +4,7 @@
 
     <section class="hero-slide-wrapper hero-1">
         <div class="hero-slider-active owl-theme owl-carousel">
-            <div class="single-slide bg-cover" style="background-image: url('assets/front/img/home1/hero1.jpg')">
+            <div class="single-slide bg-cover" style="background-image: url({{ asset('assets/front/img/home1/hero1.jpg') }})">
                 <div class="container">
                     <div class="row">
                         <div class="col-12 col-lg-10 col-xl-9">
@@ -18,7 +18,7 @@
                     </div>
                 </div>
             </div>
-            <div class="single-slide bg-cover" style="background-image: url('assets/front/img/home1/hero2.jpg')">
+            <div class="single-slide bg-cover" style="background-image: url({{ asset('assets/front/img/home1/hero2.jpg') }})">
                 <div class="container">
                     <div class="row">
                         <div class="col-12 col-lg-10 col-xl-9">
@@ -39,7 +39,7 @@
         <div class="container">
             <div class="row align-center">
                 <div class="col-xl-6 col-12 text-center">
-                    <img src="assets/front/img/age.png" alt="">
+                    <img src="{{ asset('assets/front/img/age.png') }}" alt="">
                     <h5>Yaratıcı ekip ile <b>YILLARIN TECRÜBESİ</b></h5>
                 </div>
                 <div class="col-xl-6 col-12">

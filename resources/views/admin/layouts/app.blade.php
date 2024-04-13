@@ -51,7 +51,7 @@
         </div>
     </section>
     <!-- Footer -->
-    @include('admin.layouts.footer')
+{{--    @include('admin.layouts.footer')--}}
     <!-- #END# Footer -->
 </div>
 

@@ -9,10 +9,10 @@
                     <div class="row">
                         <div class="col-12 col-lg-10 col-xl-9">
                             <div class="hero-contents">
-                                <h3 class="animated-text small-heading">Welcome To Dustrix</h3>
-                                <h1 class="animated-text bg-heading">Global Automotive</h1>
-                                <a href="services.html" class="theme-btn animated-text animated-btn">Our Services <i class="fal fa-long-arrow-right"></i></a>
-                                <a href="about.html" class="theme-btn animated-text animated-btn black">learn more</a>
+                                <h3 class="animated-text small-heading">Ensa İnşaata Hoşgeldiniz</h3>
+                                <h1 class="animated-text bg-heading">Kalite Güvence Hizmet</h1>
+                                <a href="{{ route('service.index') }}" class="theme-btn animated-text animated-btn">Hizmetlerimiz <i class="fal fa-long-arrow-right"></i></a>
+                                <a href="{{ route('page.about') }}" class="theme-btn animated-text animated-btn black">Hakkımızda</a>
                             </div>
                         </div>
                     </div>
@@ -23,10 +23,10 @@
                     <div class="row">
                         <div class="col-12 col-lg-10 col-xl-9">
                             <div class="hero-contents">
-                                <h3 class="animated-text small-heading">Welcome To Dustrix</h3>
-                                <h1 class="animated-text bg-heading">We Build Dream House</h1>
-                                <a href="services.html" class="theme-btn animated-text animated-btn">Our Services <i class="fal fa-long-arrow-right"></i></a>
-                                <a href="about.html" class="theme-btn animated-text animated-btn black">learn more</a>
+                                <h3 class="animated-text small-heading">Ensa İnşaata Hoşgeldiniz</h3>
+                                <h1 class="animated-text bg-heading">Hayalinizdeki Yapıları İnşa Ediyoruz</h1>
+                                <a href="{{ route('service.index') }}" class="theme-btn animated-text animated-btn">Hizmetlerimiz <i class="fal fa-long-arrow-right"></i></a>
+                                <a href="{{ route('page.about') }}" class="theme-btn animated-text animated-btn black">Hakkımızda</a>
                             </div>
                         </div>
                     </div>
@@ -52,7 +52,7 @@
                         <p>
                             Hala bizi tanımıyor musunuz? Hemen iletişime geçin, sizlere en iyi hizmeti sunalım.
                         </p>
-                        <a href="contact.html" class="theme-btn">İletişime Geç <i class="fal fa-long-arrow-right"></i></a>
+                        <a href="{{ route('page.contact') }}" class="theme-btn">İletişime Geç <i class="fal fa-long-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -181,7 +181,7 @@
                             @endif
                             <h1>Evinizi satışa çıkarmamızı ister misiniz?</h1>
                             <h4>Profesyonel uzman kadromuz ile evlerinizi, istediğiniz şartlarda en hızlı emlak pazarlama garantisiyle müşterilerimizle buluşturuyoruz. İster kiralayın, ister satın. Seçim sizin!</h4>
-                            <a href="contact.html" class="theme-btn black mt-4">Hemen İletişime Geçin</a>
+                            <a href="{{ route('page.contact') }}" class="theme-btn black mt-4">Hemen İletişime Geçin</a>
                         </div>
                     </div>
                     <div class="col-lg-4 col-12 order-1 order-lg-2">

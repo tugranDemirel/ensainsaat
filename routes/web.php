@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\ClientController;
+use App\Http\Controllers\Front\FContactController;
+use App\Http\Controllers\Front\FPageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AccountController;
 use App\Http\Controllers\Admin\ServiceController;
@@ -39,6 +42,11 @@ Route::middleware('ViewShare')->group(function () {
         Route::get('/basinda-biz',[FNewsLetterController::class, 'index'])->name('index');
         Route::get('/basinda-biz/{slug}',[FNewsLetterController::class, 'show'])->name('show');
     });
+
+    Route::as('page.')->group(function (){
+        Route::get('/hakkimizda',[FPageController::class, 'about'])->name('about');
+        Route::get('/iletisim',[FContactController::class, 'index'])->name('contact');
+    });
 });
 
 
@@ -69,6 +77,11 @@ Route::prefix('admin/')->as('admin.')->middleware('auth')->group(function (){
             ->only('index', 'create', 'store', 'edit', 'update', 'destroy')
             ->parameters(['emlak' => 'realestate'])
             ->names('realestate');
+
+    Route::resource('kullanici-sponsorlar', ClientController::class)
+            ->only('index', 'create', 'store', 'edit', 'update', 'destroy')
+            ->parameters(['kullanici-sponsorlar' => 'client'])
+            ->names('client');
 
 
     Route::resource('site-ayarlari', SettingController::class)

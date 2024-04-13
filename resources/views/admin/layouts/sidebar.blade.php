@@ -46,6 +46,12 @@
                 </a>
             </li>
             <li class="active">
+                <a href="{{ route('admin.client.index') }}" class="">
+                    <i class="material-icons">source</i>
+                    <span class="nav-label">Sponsor ve Kullanıcılar</span>
+                </a>
+            </li>
+            <li class="active">
                 <a href="{{ route('admin.setting.index') }}" class="">
                     <i class="material-icons">settings</i>
                     <span class="nav-label">Ayarlar</span>

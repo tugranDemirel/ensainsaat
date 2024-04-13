@@ -6,9 +6,10 @@
         <div class="spinner">
         </div>
         <div class="txt-loading">
-            @for($i = 0; $i < strlen($_setting->title); $i++)
-                <span data-text-preloader="{{ substr($_setting->title, $i, 1) }}" class="letters-loading">{{ substr($_setting->title, $i, 1) }}</span>
-            @endfor
+            <span data-text-preloader="{{ ($_setting->title) }}" class="letters-loading">{{ ($_setting->title) }}</span>
+{{--{{--            @for($i = 0; $i < strlen($_setting->title); $i++)--}}
+{{--                <span data-text-preloader="{{ substr($_setting->title, $i, 1) }}" class="letters-loading">{{ substr($_setting->title, $i, 1) }}</span>--}}
+{{--            @endfor--}}
         </div>
         <p class="text-center">Yükleniyor</p>
     </div>
@@ -96,7 +97,7 @@
             </div>
             <div class="col-6 justify-content-end align-items-center d-flex d-lg-none">
                 <div class="header-btn d-none-mobile">
-                    <a href="contact.html" class="theme-btn">teklif al</a>
+                    <a href="{{ route('page.contact') }}" class="theme-btn">teklif al</a>
                 </div>
 
                 <div class="mobile-nav-bar ml-15">
@@ -120,10 +121,10 @@
                                             <li><a href="{{ route('realestate.purporse', ['purpose' => 'satilik']) }}">Satılık</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="about.html">Hakkımızda</a></li>
+                                    <li><a href="{{ route('page.about') }}">Hakkımızda</a></li>
                                     <li><a href="{{ route('service.index') }}">Hizmetlerimiz</a></li>
                                     <li><a href="{{ route('newsletter.index') }}">Basında Biz</a></li>
-                                    <li><a href="contact.html">İletişim</a></li>
+                                    <li><a href="{{ route('page.contact') }}">İletişim</a></li>
                                 </ul>
                             </nav>
 
@@ -173,7 +174,7 @@
                                     </div>
                                 </div>
                                 @endif
-                                <a href="contact.html" class="theme-btn mt-4">Teklif Al <i class="fal fa-arrow-right"></i></a>
+                                <a href="{{ route('page.contact') }}" class="theme-btn mt-4">Teklif Al <i class="fal fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -194,10 +195,10 @@
                             <li><a href="{{ route('realestate.purporse', ['purpose' => 'satilik']) }}">Satılık</a></li>
                         </ul>
                     </li>
-                    <li><a href="about.html">Hakkımızda</a></li>
+                    <li><a href="{{ route('page.about') }}">Hakkımızda</a></li>
                     <li><a href="{{ route('service.index') }}">Hizmetlerimiz</a></li>
                     <li><a href="{{ route('newsletter.index') }}">Basında Biz</a></li>
-                    <li><a href="contact.html">İletişim</a></li>
+                    <li><a href="{{ route('page.contact') }}">İletişim</a></li>
                 </ul>
             </div>
 

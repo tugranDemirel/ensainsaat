@@ -158,7 +158,7 @@
                             @endif
                             <h1>Evinizi satışa çıkarmamızı ister misiniz?</h1>
                             <h4>Profesyonel uzman kadromuz ile evlerinizi, istediğiniz şartlarda en hızlı emlak pazarlama garantisiyle müşterilerimizle buluşturuyoruz. İster kiralayın, ister satın. Seçim sizin!</h4>
-                            <a href="contact.html" class="theme-btn black mt-4">Hemen İletişime Geçin</a>
+                            <a href="{{ route('page.contact') }}" class="theme-btn black mt-4">Hemen İletişime Geçin</a>
                         </div>
                     </div>
                     <div class="col-lg-4 col-12 order-1 order-lg-2">
@@ -194,7 +194,7 @@
                                     @endif
                                     <h1>Evinizi satışa çıkarmamızı ister misiniz?</h1>
                                     <h4>Profesyonel uzman kadromuz ile evlerinizi, istediğiniz şartlarda en hızlı emlak pazarlama garantisiyle müşterilerimizle buluşturuyoruz. İster kiralayın, ister satın. Seçim sizin!</h4>
-                                    <a href="contact.html" class="theme-btn black mt-4">Hemen İletişime Geçin</a>
+                                    <a href="{{ route('page.contact.index') }}" class="theme-btn black mt-4">Hemen İletişime Geçin</a>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-12 order-1 order-lg-2">

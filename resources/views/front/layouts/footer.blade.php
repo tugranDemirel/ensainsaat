@@ -108,7 +108,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-4 col-12 text-center text-lg-left">
                     <div class="copyright-info">
-                        <p>Design By <a href="tel:+905443380633" target="_blank">Tuğran Demirel</a> - 2023</p>
+                        <p>Design By <a href="tel:+905443380633" target="_blank">Tuğran Demirel</a> - {{ \Carbon\Carbon::now()->format('Y') }}</p>
                     </div>
                 </div>
                 @if(!is_null($_setting->logo))

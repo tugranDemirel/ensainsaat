@@ -11,8 +11,8 @@
                 </a>
                 <!-- Logo -->
                 <a class="navbar-brand" href="">
-                    <span class="logo-minimized">B</span>
-                    <span class="logo">Bozok Tv</span>
+                    <span class="logo-minimized">Eİ</span>
+                    <span class="logo">{{ config('app.name') }}</span>
                 </a>
                 <!-- #END# Logo -->
             </div>
@@ -28,40 +28,26 @@
                     <!-- User Menu -->
                     <li class="dropdown user-menu">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="assets/admin/images/avatars/face2.jpg" alt="User Avatar" />
-                            <span class="hidden-xs">Brandon Sanchez</span>
+
+                            <span class="hidden-xs">{{ auth()->user()->name }}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <li class="header">
-                                <img src="assets/admin/images/avatars/face2.jpg" alt="User Avatar" />
+
                                 <div class="user">
-                                    Brandon Sanchez
+                                    {{ auth()->user()->name }}
 
                                 </div>
                             </li>
-                            <li class="body">
-                                <ul>
-                                    <li>
-                                        <a href="../miscellaneous/profile.html">
-                                            <i class="material-icons">account_circle</i> Profile
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);">
-                                            <i class="material-icons">lock_open</i> Change Password
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
                             <li class="footer">
                                 <div class="row clearfix">
-                                    <div class="col-xs-5">
-                                        <a href="../examples/locked-screen.html" class="btn btn-default btn-sm btn-block">Log Off</a>
-                                    </div>
                                     <div class="col-xs-2"></div>
                                     <div class="col-xs-5">
-                                        <a href="javascript:void(0);" class="btn btn-default btn-sm btn-block">Log Out</a>
+                                        <a href="javascript:void(0);" onclick="document.getElementById('logout').submit()" class="btn btn-default btn-sm btn-block">Çıkış Yap</a>
                                     </div>
+                                    <form action="{{ route('logout') }}" id="logout" method="post">
+                                        @csrf
+                                    </form>
                                 </div>
                             </li>
                         </ul>

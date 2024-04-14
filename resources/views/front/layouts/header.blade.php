@@ -32,6 +32,6 @@
     <!--  main style css file -->
     <link rel="stylesheet" href="{{ asset('assets/front/css/style.css') }}">
     <!-- template main style css file -->
-    <link rel="stylesheet" href="{{ asset('style.css') }}">
+{{--    <link rel="stylesheet" href="{{ asset('style.css') }}">--}}
     @yield('css')
 </head>

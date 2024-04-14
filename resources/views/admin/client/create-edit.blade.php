@@ -1,11 +1,11 @@
 @extends('admin.layouts.app')
-@section('title',  isset($client) ? 'Sponsor ve Kullanıcılar Düzenle' : 'Yeni Sponsor ve Kullanıcılar Ekle')
+@section('title',  isset($client) ? 'Çalışma Markalarımız Düzenle' : 'Yeni Çalışma Markalarımız Ekle')
 @section('content')
     <div class="page-body">
-        @section('page_title', isset($client) ? 'Sponsor ve Kullanıcılar Düzenle' : 'Yeni Sponsor ve Kullanıcılar Ekle')
+        @section('page_title', isset($client) ? 'Çalışma Markalarımız Düzenle' : 'Yeni Çalışma Markalarımız Ekle')
         <div class="clearfix">
             <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation" class="active"><a href="#basic_info" role="tab" data-toggle="tab">Sponsor ve Kullanıcılar</a></li>
+                <li role="presentation" class="active"><a href="#basic_info" role="tab" data-toggle="tab">Çalışma Markalarımız</a></li>
             </ul>
             <form action="{{ isset($client) ? route('admin.client.update', ['client' => $client]) : route('admin.client.store') }}" method="post" enctype="multipart/form-data">
                 @csrf

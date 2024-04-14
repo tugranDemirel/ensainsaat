@@ -12,7 +12,6 @@
         <div class="clearfix">
             <ul class="nav nav-tabs" role="tablist">
                 <li role="presentation" class="active"><a href="#basic_info" role="tab" data-toggle="tab">Genel Bilgiler</a></li>
-                <li role="presentation"><a href="#detail_info" role="tab" data-toggle="tab">Servis Özelliği</a></li>
                 <li role="presentation"><a href="#meta_data" role="tab" data-toggle="tab">Meta Data</a></li>
                 <li role="presentation"><a href="#product_images" role="tab" data-toggle="tab">Servis Resmi</a></li>
             </ul>
@@ -68,25 +67,6 @@
                         </div>
                 </div>
                 <!-- #END# Basic Info -->
-                <!-- Detail Info -->
-                <div role="tabpanel" class="tab-pane fade attributes" id="detail_info">
-                    <button id="addAttribute" class="btn btn-success btn-sm" type="button"><i class="fa fa-sellsy m-r-5"></i>Özellik Ekle</button>
-                    <div class="form-group">
-                        @foreach($service->attributes as $attribute)
-                        <div class="row clearfix" >
-                            <div class="col-sm-6">
-                                <label>Özellik Adı</label>
-                                <input type="text" name="attributes[]" value="{{ $attribute->attribute }}" class="form-control @error('attribute') is-invalid @enderror" />
-                            </div>
-                            <div class="col-sm-6">
-                                <button class="btn btn-danger btn-sm remove-attribute" style="margin-top: 25px;"><i class="fa fa-recycle m-r-5"></i></button>
-                            </div>
-                        </div>
-                        @endforeach
-                    </div>
-
-                </div>
-                <!-- #END# Detail Info -->
                 <!-- Meta Data -->
                 <div role="tabpanel" class="tab-pane fade" id="meta_data">
                         <div class="form-group">
@@ -138,35 +118,4 @@
     <script src="{{ asset('assets/admin/js/pages/ecommerce/product-edit.js') }}"></script>
     <!-- Bootstrap TagsInput Js -->
     <script src="{{ asset('assets/admin/plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.js') }}"></script>
-
-    <script>
-        let attribute = document.getElementById('addAttribute')
-        attribute.addEventListener('click', function (){
-            event.preventDefault();
-                var inputHtml = '<div class="form-group">' +
-                    '<div class="row clearfix">' +
-                    '<div class="col-sm-6">' +
-                    '<label>Servis Adı</label>' +
-                    '<input type="text" name="attributes[]" class="form-control @error('attributes') is-invalid @enderror" />' +
-                    '</div>' +
-                    '<div class="col-sm-6">' +
-                    '<button class="btn btn-danger btn-sm remove-attribute" style="margin-top: 25px;"><i class="fa fa-recycle m-r-5"></i></button>' +
-                    '</div>' +
-                    '</div>' +
-                    '</div>';
-                $('.attributes').append(inputHtml);
-
-        })
-        $(document).on('click', '.remove-attribute', function (){
-            event.preventDefault();
-            let removeAttribute = document.querySelectorAll('.remove-attribute')
-            console.log(removeAttribute.length)
-            if(removeAttribute.length > 1){
-                $(this).parent().parent().parent().remove();
-            }else
-            {
-                alert('En az 1 özellik olmalıdır.')
-            }
-        })
-    </script>
 @endsection

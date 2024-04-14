@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\ClientController;
+use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Front\FContactController;
 use App\Http\Controllers\Front\FPageController;
 use Illuminate\Support\Facades\Route;
@@ -46,6 +47,7 @@ Route::middleware('ViewShare')->group(function () {
     Route::as('page.')->group(function (){
         Route::get('/hakkimizda',[FPageController::class, 'about'])->name('about');
         Route::get('/iletisim',[FContactController::class, 'index'])->name('contact');
+        Route::post('/iletisim',[FContactController::class, 'store'])->name('contact.store');
     });
 });
 
@@ -83,6 +85,10 @@ Route::prefix('admin/')->as('admin.')->middleware('auth')->group(function (){
             ->parameters(['kullanici-sponsorlar' => 'client'])
             ->names('client');
 
+    Route::prefix('iletisim')->as('contact.')->group(function () {
+        Route::get('/', [ContactController::class, 'index'])->name('index');
+        Route::get('/detay/{contact}', [ContactController::class, 'show'])->name('show');
+    });
 
     Route::resource('site-ayarlari', SettingController::class)
             ->only('index', 'store','update')

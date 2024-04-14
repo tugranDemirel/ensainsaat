@@ -48,7 +48,13 @@
             <li class="active">
                 <a href="{{ route('admin.client.index') }}" class="">
                     <i class="material-icons">source</i>
-                    <span class="nav-label">Sponsor ve Kullanıcılar</span>
+                    <span class="nav-label">Çalışma Markalarımız</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="{{ route('admin.contact.index') }}" class="">
+                    <i class="material-icons">chat</i>
+                    <span class="nav-label">İletişim Mesajları</span>
                 </a>
             </li>
             <li class="active">

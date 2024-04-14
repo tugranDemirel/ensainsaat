@@ -200,9 +200,9 @@
                 <div class="row mb-30">
                     <div class="col-12 col-lg-12">
                         <div class="section-title text-center">
-                            <span>Kullanıcı</span>
-                            <p>Sponsorlar</p>
-                            <h1>Kullanıcı ve Sponsorlarımız</h1>
+                            <span>Marka</span>
+                            <p>Markalarımız</p>
+                            <h1>Çalışma Markalarımız</h1>
                         </div>
                     </div>
                 </div>
@@ -213,7 +213,7 @@
                             @foreach($clients as $client)
                                 <div class="single-brand-logo">
                                     <a href="{{ $client?->url ?? '#' }}" @if(!is_null($client?->url)) target="_blank" @endif>
-                                        <img src="{{ asset($client?->image) }}" alt="{{ $client?->name ?? '-' }}">
+                                        <img src="{{ asset($client?->image) }}" alt="{{ $client?->name ?? '-' }}" title="{{ $client?->name ?? '-' }}" data-toggle="tooltip">
                                     </a>
                                 </div>
                             @endforeach
@@ -322,6 +322,6 @@
                       stroke-linecap="round" stroke-linejoin="round" fill="none"
                       d="M2.000,2.000 C2.000,2.000 154.088,121.789 498.000,158.000 C841.912,194.211 878.088,39.793 1158.000,132.000 C1437.912,224.207 1574.088,59.779 1840.000,86.000 "/>
             </svg>
-        </div>
+        </div>--}}
     </section>--}}
 @endsection

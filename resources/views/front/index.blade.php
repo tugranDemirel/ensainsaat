@@ -76,7 +76,7 @@
                     <div class="single-service-item service-1">
                         <div class="service-bg bg-cover" style="background-image: url({{ asset($service->image) }})"></div>
                         <div class="icon">
-                            <img src="{{ asset($service->icon) }}" alt="">
+                           {!! $service?->icon !!}
                         </div>
                         <h3>{{ $service->title }}</h3>
                         <a href="{{ route('service.show', ['slug' => $service->slug] ) }}"><span>Daha Fazla Oku</span><i class="fal fa-long-arrow-right"></i></a>

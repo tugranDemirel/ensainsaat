@@ -35,7 +35,7 @@
                             <div class="content">
                                 <div class="case-cat">
                                     <a href="{{ route('service.show', ['slug' => $service->slug]) }}">
-                                        <i class="fal fa-drafting-compass"></i>
+                                        {!! $service?->icon !!}
                                     </a>
                                 </div>
                                 <h3><a href="{{ route('service.show', ['slug' => $service->slug]) }}">{{ $service->name }}</a></h3>

@@ -21,21 +21,20 @@ class ServiceRequest extends FormRequest
      *
      * @return array<string, mixed>
      */
-    public function rules()
+    public function rules(): array
     {
         return [
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:190',
             'description' => 'required|string',
-            'short_description' => 'required|string|max:255',
+            'short_description' => 'required|string|max:190',
             'image' => 'nullable',
             'icon' => 'nullable',
             'is_active' => 'nullable',
             'is_home' => 'nullable',
             'is_featured' => 'nullable',
-            'meta_title' => 'nullable|string|max:255',
-            'meta_description' => 'nullable|string|max:255',
-            'meta_keywords' => 'nullable|string|max:255',
-            'attributes' => 'nullable',
+            'meta_title' => 'nullable|string|max:160',
+            'meta_description' => 'nullable|string|max:160',
+            'meta_keywords' => 'nullable|string|max:160',
 
         ];
     }
